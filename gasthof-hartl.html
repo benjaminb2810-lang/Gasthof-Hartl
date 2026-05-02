@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gasthof Hartl – Zum Unterwirt | Türkenfeld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #fdf9f3;
+    --dark: #1a1208;
+    --brown: #5c3d1e;
+    --gold: #c9972a;
+    --gold-light: #e8c06a;
+    --green: #2d4a2d;
+    --text: #2e2212;
+    --text-light: #7a6a52;
+    --border: #d4c5a9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(26,18,8,0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 70px;
+    border-bottom: 1px solid rgba(201,151,42,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    letter-spacing: 0.03em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(245,240,232,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--dark) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 60% 40%, rgba(201,151,42,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 70%, rgba(45,74,45,0.25) 0%, transparent 50%),
+      linear-gradient(160deg, #1a1208 0%, #2e1f0a 40%, #1a1208 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    padding: 0 24px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(245,240,232,0.65);
+    margin-bottom: 14px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    margin-bottom: 44px;
+    opacity: 0.9;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border: 2px solid var(--gold);
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 2px solid rgba(245,240,232,0.4);
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(245,240,232,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* BADGE STRIP */
+  .badge-strip {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 100px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--brown);
+  }
+
+  .section-desc {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 28px 0;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--dark);
+    padding: 40px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+
+  .about-stat {
+    text-align: center;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(201,151,42,0.2);
+  }
+
+  .about-stat:last-child { border-bottom: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.55);
+    font-weight: 300;
+  }
+
+  .info-list {
+    list-style: none;
+    margin-top: 28px;
+  }
+
+  .info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .info-list li:last-child { border-bottom: none; }
+
+  .info-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--gold);
+    color: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* SPEISERÄUME */
+  .rooms-bg {
+    background: var(--dark);
+    padding: 100px 0;
+  }
+
+  .rooms-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .rooms-header { margin-bottom: 60px; }
+
+  .rooms-header .section-title { color: var(--cream); }
+  .rooms-header .section-desc { color: rgba(245,240,232,0.6); }
+
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+  }
+
+  .room-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,151,42,0.2);
+    padding: 36px 28px;
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .room-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+
+  .room-card:hover {
+    background: rgba(201,151,42,0.08);
+    transform: translateY(-4px);
+  }
+
+  .room-card:hover::after { width: 100%; }
+
+  .room-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .room-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .room-capacity {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .room-desc {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* KÜCHE */
+  .kitchen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .kitchen-times {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .times-header {
+    background: var(--green);
+    padding: 20px 28px;
+    color: var(--cream);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .times-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .times-row:last-child { border-bottom: none; }
+
+  .times-day { font-weight: 700; color: var(--text); }
+
+  .times-hours { color: var(--text-light); font-size: 0.85rem; }
+
+  .times-closed {
+    color: #c0392b;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .tag {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--brown);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* RESERVIERUNG */
+  .res-section {
+    background: linear-gradient(135deg, var(--green) 0%, #1a2e1a 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .res-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+
+  .res-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .res-header { text-align: center; margin-bottom: 60px; }
+  .res-header .section-title { color: var(--cream); }
+  .res-header .section-desc { color: rgba(245,240,232,0.65); margin: 0 auto; }
+
+  .res-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .res-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,151,42,0.35);
+    border-radius: 6px;
+    padding: 44px 40px;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .res-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .res-card:hover::before { transform: scaleX(1); }
+
+  .res-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .res-emoji {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .res-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .res-desc {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .res-info {
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-res {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    width: 100%;
+  }
+
+  .btn-res:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .res-phone {
+    text-align: center;
+    margin-top: 40px;
+    color: rgba(245,240,232,0.55);
+    font-size: 0.9rem;
+  }
+
+  .res-phone a {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* ÜBERNACHTEN */
+  .sleep-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .amenity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .amenity-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .price-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: var(--dark);
+    color: var(--cream);
+    padding: 18px 28px;
+    border-radius: 4px;
+    margin-top: 32px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .price-from {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+  }
+
+  .price-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--gold-light);
+  }
+
+  .price-unit {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* BEWERTUNGEN */
+  .reviews-bg {
+    background: var(--cream);
+    padding: 100px 0;
+  }
+
+  .reviews-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .rating-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 60px;
+    padding: 32px 40px;
+    background: var(--dark);
+    border-radius: 6px;
+    flex-wrap: wrap;
+  }
+
+  .rating-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .rating-stars { font-size: 1.6rem; letter-spacing: 4px; }
+
+  .rating-label {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.5);
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .rating-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(201,151,42,0.3);
+    margin: 0 16px;
+  }
+
+  .rating-sources { color: rgba(245,240,232,0.6); font-size: 0.9rem; line-height: 1.8; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .review-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    position: relative;
+    transition: box-shadow 0.3s;
+  }
+
+  .review-card:hover {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  }
+
+  .review-quote {
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 0.5;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+  }
+
+  .review-text {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: var(--text);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .reviewer-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--brown);
+  }
+
+  .reviewer-source {
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+
+  .review-stars { color: var(--gold); font-size: 0.85rem; }
+
+  /* LAGE */
+  .map-section {
+    padding: 100px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .map-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-box {
+    background: var(--dark);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .contact-header {
+    background: linear-gradient(135deg, var(--brown), #3d2010);
+    padding: 28px 32px;
+  }
+
+  .contact-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  .contact-header p {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.55);
+    letter-spacing: 0.05em;
+  }
+
+  .contact-body { padding: 28px 32px; }
+
+  .contact-row {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(201,151,42,0.15);
+    align-items: flex-start;
+  }
+
+  .contact-row:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,151,42,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-info-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .contact-info-val {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.85);
+    line-height: 1.5;
+  }
+
+  .contact-info-val a {
+    color: rgba(245,240,232,0.85);
+    text-decoration: none;
+  }
+
+  .contact-info-val a:hover { color: var(--gold-light); }
+
+  .map-embed {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 3px solid var(--border);
+  }
+
+  .map-embed iframe {
+    display: block;
+    width: 100%;
+    height: 480px;
+    border: none;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 60px 48px 32px;
+    border-top: 1px solid rgba(201,151,42,0.2);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+
+  .footer-brand small {
+    font-size: 0.82rem;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.7;
+    display: block;
+  }
+
+  .footer-col h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    font-size: 0.88rem;
+    color: rgba(245,240,232,0.5);
+    padding: 5px 0;
+  }
+
+  .footer-col ul li a {
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(201,151,42,0.15);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.3);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* MODAL / OVERLAY */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26,18,8,0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--warm-white);
+    border-radius: 8px;
+    max-width: 560px;
+    width: 90%;
+    overflow: hidden;
+    transform: translateY(30px);
+    transition: transform 0.3s;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  }
+
+  .modal-overlay.active .modal {
+    transform: translateY(0);
+  }
+
+  .modal-header {
+    background: var(--dark);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .modal-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 1.4rem;
+  }
+
+  .modal-header p {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.5);
+    margin-top: 4px;
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.6);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--gold-light); }
+
+  .modal-body { padding: 32px; }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 16px;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); }
+
+  .form-success {
+    text-align: center;
+    padding: 32px;
+    display: none;
+  }
+
+  .form-success .success-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .form-success h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .form-success p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .section { padding: 60px 24px; }
+    .about-grid, .kitchen-grid, .sleep-grid, .map-layout { grid-template-columns: 1fr; gap: 40px; }
+    .res-cards { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .rating-hero { flex-direction: column; text-align: center; }
+    .rating-divider { display: none; }
+    .badge-strip { gap: 20px; }
+    .rooms-bg, .reviews-bg { padding: 60px 0; }
+    .rooms-inner, .reviews-inner { padding: 0 24px; }
+    .res-inner { padding: 0 24px; }
+    .map-section { padding: 60px 24px; }
+    footer { padding: 48px 24px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .amenities-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Gasthof Hartl · Zum Unterwirt</div>
+  <ul class="nav-links">
+    <li><a href="#about">Über uns</a></li>
+    <li><a href="#kueche">Küche</a></li>
+    <li><a href="#raeume">Räume</a></li>
+    <li><a href="#uebernachten">Übernachten</a></li>
+    <li><a href="#bewertungen">Bewertungen</a></li>
+    <li><a href="#lage">Lage</a></li>
+    <li><a href="#reservierung" class="nav-cta">Reservieren</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Seit über 130 Jahren · Türkenfeld · 5-Seen-Land</p>
+    <h1>Gasthof Hartl<br><em>Zum Unterwirt</em></h1>
+    <p class="hero-sub">Duringstraße 5 · 82299 Türkenfeld</p>
+    <p class="hero-tagline">„Regional, Saisonal, Original"</p>
+    <div class="hero-btns">
+      <a href="#reservierung" class="btn-primary">Tisch reservieren</a>
+      <a href="#uebernachten" class="btn-outline">Zimmer anfragen</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Entdecken</div>
+</section>
+
+<!-- BADGE STRIP -->
+<div class="badge-strip">
+  <div class="badge-item">⭐ 8,5/10 auf Booking.com</div>
+  <div class="badge-item">🏡 Über 130 Jahre Familientradition</div>
+  <div class="badge-item">🛏️ 32 Betten ab 69 €</div>
+  <div class="badge-item">🍽️ Bis 250 Gäste feiern</div>
+</div>
+
+<!-- ÜBER UNS -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div>
+      <span class="section-label">Unser Haus</span>
+      <h2 class="section-title">Bayerische Gastlichkeit <em>in Reinkultur</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Der bayerische Traditionsgasthof – seit über 130 Jahren im Familienbesitz der Hartls – wurde in den letzten Jahren liebevoll renoviert. Gutbürgerliche sowie leichte innovative Speisen aus unserer Küche erwarten Sie in gemütlicher Atmosphäre.</p>
+
+      <ul class="info-list">
+        <li>
+          <div class="info-icon">📍</div>
+          <div>Knapp 5 Autominuten von der Ausfahrt Greifenberg (A 96 Lindau–München) · 8 Gehminuten zur S-Bahn nach München</div>
+        </li>
+        <li>
+          <div class="info-icon">🚲</div>
+          <div>6 km bis zum Ammersee – ideal für Radausflüge ins Fünf-Seen-Land</div>
+        </li>
+        <li>
+          <div class="info-icon">🐾</div>
+          <div>Haustiere willkommen nach vorheriger Absprache</div>
+        </li>
+        <li>
+          <div class="info-icon">👨‍👩‍👧</div>
+          <div>Kinderfreundlich – Familienzimmer vorhanden, vergünstigte Kinderpreise</div>
+        </li>
+        <li>
+          <div class="info-icon">🅿️</div>
+          <div>Kostenlose Parkplätze für unsere Gäste</div>
+        </li>
+      </ul>
+    </div>
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-stat">
+          <div class="stat-num">130+</div>
+          <div class="stat-label">Jahre Familienbesitz</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Jahre Feiern & Events</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-num">250</div>
+          <div class="stat-label">Gäste im großen Saal</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-num">32</div>
+          <div class="stat-label">Betten im Gästehaus</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÄUME -->
+<section class="rooms-bg" id="raeume">
+  <div class="rooms-inner">
+    <div class="rooms-header">
+      <span class="section-label" style="color:var(--gold)">Veranstaltungsräume</span>
+      <h2 class="section-title" style="color:var(--cream)">Feiern Sie mit uns – <em style="color:var(--gold-light)">für jeden Anlass</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Seit 100 Jahren werden beim Unterwirt Hochzeiten, Betriebs- und Vereinsfeste sowie Familienfeiern gefeiert.</p>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card">
+        <div class="room-icon">🎭</div>
+        <div class="room-name">Festsaal</div>
+        <div class="room-capacity">bis 200 Personen</div>
+        <div class="room-desc">Großer Saal mit Showbühne – ideal für Hochzeiten, Firmenfeiern und große Familienfeste.</div>
+      </div>
+      <div class="room-card">
+        <div class="room-icon">🕯️</div>
+        <div class="room-name">Josefsstub'n</div>
+        <div class="room-capacity">bis 100 Personen</div>
+        <div class="room-desc">Edel ausgestattet mit viel Atmosphäre – perfekt für exklusive Feiern im intimen Rahmen.</div>
+      </div>
+      <div class="room-card">
+        <div class="room-icon">🌿</div>
+        <div class="room-name">Andreasstube</div>
+        <div class="room-capacity">bis 40 Personen</div>
+        <div class="room-desc">Gemütlich und persönlich – für kleinere Gesellschaften und Zusammenkünfte.</div>
+      </div>
+      <div class="room-card">
+        <div class="room-icon">🍺</div>
+        <div class="room-name">Gaststube</div>
+        <div class="room-capacity">á la carte</div>
+        <div class="room-desc">Das Herzstück des Gasthofs – urig, bayerisch und einladend.</div>
+      </div>
+      <div class="room-card">
+        <div class="room-icon">☀️</div>
+        <div class="room-name">Wirtsgarten</div>
+        <div class="room-capacity">á la carte · windgeschützt</div>
+        <div class="room-desc">Gemütlicher Innenhof-Biergarten – im Sommer der schönste Platz in Türkenfeld.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KÜCHE -->
+<section class="section" id="kueche">
+  <div class="kitchen-grid">
+    <div>
+      <span class="section-label">Unsere Küche</span>
+      <h2 class="section-title">Regional. Saisonal. <em>Original.</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Gutbürgerliche Küche trifft auf leichte, innovative Akzente. Wir setzen auf regionale Zutaten, saisonale Karte und Spezialitäten wie Braumeisterschnitzel, Ammersee-Renke und hausgemachte Schmankerln.</p>
+      <p class="section-desc" style="margin-top:16px">Besondere Events wie Spargelessen, Mehrgänge-Dinner und Kabarettabende runden das Angebot ab.</p>
+
+      <div class="tag-list">
+        <span class="tag">Regionale Küche</span>
+        <span class="tag">Bayerische Klassiker</span>
+        <span class="tag">Saisonale Karte</span>
+        <span class="tag">Ammersee-Renke</span>
+        <span class="tag">Eigengebrautes Bier</span>
+        <span class="tag">To-Go Angebot</span>
+      </div>
+    </div>
+    <div>
+      <div class="kitchen-times">
+        <div class="times-header">🕐 Öffnungszeiten Küche</div>
+        <div class="times-row">
+          <span class="times-day">Montag & Dienstag</span>
+          <span class="times-closed">Ruhetag</span>
+        </div>
+        <div class="times-row">
+          <span class="times-day">Mittwoch – Freitag</span>
+          <div>
+            <div class="times-hours">11:30 – 14:00 Uhr</div>
+            <div class="times-hours">17:00 – 20:45 Uhr</div>
+          </div>
+        </div>
+        <div class="times-row">
+          <span class="times-day">Samstag & Sonntag</span>
+          <div class="times-hours">11:00 – 20:45 Uhr</div>
+        </div>
+        <div class="times-row" style="background:rgba(201,151,42,0.06)">
+          <span class="times-day" style="color:var(--brown)">📞 Reservierung empfohlen</span>
+          <span class="times-hours">08193 / 999 517</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVIERUNG -->
+<section class="res-section" id="reservierung">
+  <div class="res-inner">
+    <div class="res-header">
+      <span class="section-label" style="color:var(--gold)">Buchung</span>
+      <h2 class="section-title" style="color:var(--cream)">Reservieren Sie jetzt</h2>
+      <div class="divider" style="margin:0 auto 20px;"></div>
+      <p class="section-desc">Tischreservierung und Zimmerreservierung sind getrennt möglich – wählen Sie einfach, was Sie benötigen.</p>
+    </div>
+    <div class="res-cards">
+      <div class="res-card">
+        <span class="res-emoji">🍽️</span>
+        <div class="res-title">Tisch reservieren</div>
+        <div class="res-desc">Sichern Sie sich Ihren Platz im Restaurant, der Gaststube oder im Wirtsgarten. Besonders an Wochenenden empfehlen wir eine Reservierung.</div>
+        <div class="res-info">Schnelle Online-Buchung via RESERViSiON</div>
+        <a href="#" class="btn-res" onclick="openModal('tisch'); return false;">Tisch online buchen</a>
+      </div>
+      <div class="res-card">
+        <span class="res-emoji">🛏️</span>
+        <div class="res-title">Zimmer anfragen</div>
+        <div class="res-desc">32 Betten in geräumigen Zimmern – ab 69 € pro Nacht. Familienzimmer verfügbar. Check-in ab 14:00 Uhr, Check-out bis 11:00 Uhr.</div>
+        <div class="res-info">Ab 69 € / Nacht · Frühstücksbuffet inklusive</div>
+        <a href="#" class="btn-res" onclick="openModal('zimmer'); return false;">Zimmer anfragen</a>
+      </div>
+    </div>
+    <div class="res-phone">
+      Oder direkt anrufen: <a href="tel:+498193999517">08193 / 999 517</a> &nbsp;·&nbsp;
+      <a href="mailto:kontakt@gasthof-hartl.de" style="color:rgba(245,240,232,0.5);text-decoration:none">kontakt@gasthof-hartl.de</a>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBERNACHTEN -->
+<section class="section" id="uebernachten">
+  <div class="sleep-grid">
+    <div>
+      <span class="section-label">Übernachten</span>
+      <h2 class="section-title">Ihr Zuhause auf <em>Zeit</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">Alle Zimmer sind liebevoll eingerichtet und bieten alles, was Sie für einen angenehmen Aufenthalt brauchen. Starten Sie erholt in einen neuen Entdeckungstag im Fünf-Seen-Land.</p>
+
+      <div class="price-badge">
+        <span class="price-from">Ab</span>
+        <span class="price-num">69 €</span>
+        <span class="price-unit">/ Nacht & Zimmer</span>
+      </div>
+
+      <div class="amenities-grid">
+        <div class="amenity"><div class="amenity-dot"></div>Kostenloses WLAN</div>
+        <div class="amenity"><div class="amenity-dot"></div>Frühstücksbuffet</div>
+        <div class="amenity"><div class="amenity-dot"></div>Flachbild-TV / Sat</div>
+        <div class="amenity"><div class="amenity-dot"></div>Eigenes Bad / Dusche</div>
+        <div class="amenity"><div class="amenity-dot"></div>Schreibtisch & Safe</div>
+        <div class="amenity"><div class="amenity-dot"></div>Familienzimmer</div>
+        <div class="amenity"><div class="amenity-dot"></div>Kostenloser Parkplatz</div>
+        <div class="amenity"><div class="amenity-dot"></div>Haustiere auf Anfrage</div>
+        <div class="amenity"><div class="amenity-dot"></div>Check-in ab 14:00</div>
+        <div class="amenity"><div class="amenity-dot"></div>Check-out bis 11:00</div>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:36px;margin-bottom:24px;">
+        <h4 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dark);margin-bottom:16px">32 Betten · Familienbetrieb</h4>
+        <p style="font-size:0.9rem;color:var(--text-light);line-height:1.7">Der Gasthof verfügt über ein separates Gästehaus. Ob Einzelreisende, Pärchen oder Familien – es stehen verschiedene Zimmergrößen bereit. Kinder übernachten je nach Alter vergünstigt.</p>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border)">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:0.88rem">
+            <span style="color:var(--text-light)">Bewertung (Booking.com)</span>
+            <strong style="color:var(--gold)">8,5 / 10</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.88rem">
+            <span style="color:var(--text-light)">Paare bewerten Lage</span>
+            <strong style="color:var(--gold)">8,2 / 10</strong>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--dark);border-radius:8px;padding:28px;display:flex;gap:16px;align-items:flex-start">
+        <span style="font-size:1.8rem">🚉</span>
+        <div>
+          <div style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px">Beste Lage</div>
+          <div style="font-size:0.88rem;color:rgba(245,240,232,0.7);line-height:1.6">8 Gehminuten zur S-Bahn nach München · 15 Min. Fußweg zum Bahnhof · 6 km zum Ammersee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEWERTUNGEN -->
+<section class="reviews-bg" id="bewertungen">
+  <div class="reviews-inner">
+    <div style="margin-bottom:40px">
+      <span class="section-label">Was unsere Gäste sagen</span>
+      <h2 class="section-title">Echte <em>Bewertungen</em></h2>
+    </div>
+
+    <div class="rating-hero">
+      <div>
+        <div class="rating-big">8,5</div>
+        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        <div class="rating-label">Booking.com · Sehr gut</div>
+      </div>
+      <div class="rating-divider"></div>
+      <div>
+        <div class="rating-big" style="font-size:3.5rem">4/5</div>
+        <div class="rating-stars" style="font-size:1.2rem">⭐⭐⭐⭐</div>
+        <div class="rating-label">TripAdvisor · Platz #1 in Türkenfeld</div>
+      </div>
+      <div class="rating-divider"></div>
+      <div class="rating-sources">
+        <p>✅ 46 Bewertungen auf TripAdvisor</p>
+        <p>✅ Über 42 Rezensionen gesamt</p>
+        <p>✅ Beliebt bei Paaren & Familien</p>
+        <p>✅ Nr. 1 Hotel/B&B in Türkenfeld</p>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Egal wann wir beim Hartl einkehren – wir werden immer freundlich empfangen, zügig bedient und da stimmt einfach alles! Das Essen ist super – nahezu alles regional! Es gibt immer wieder tolle Events. Ich kann den Hartl mehr als empfehlen!</p>
+        <div class="review-meta">
+          <div>
+            <div class="reviewer-name">Sabine M.</div>
+            <div class="reviewer-source">aus Türkenfeld · GoLocal</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">This is a charming hotel, very popular with locals for special events. We enjoyed our stay very much!! We were concerned about traffic noise, as our room faced the street. This is no problem at all.</p>
+        <div class="review-meta">
+          <div>
+            <div class="reviewer-name">Internationaler Gast</div>
+            <div class="reviewer-source">Booking.com · Sehr gut</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Der Gasthof bietet kreative, baierische Küche mit nettem Personal – ein Besuch kann uneingeschränkt empfohlen werden. Die wechselnde Speisekarte bietet immer wieder neue Schmankerln. Hier werden auch eigene Biere gebraut!</p>
+        <div class="review-meta">
+          <div>
+            <div class="reviewer-name">TripAdvisor-Nutzer</div>
+            <div class="reviewer-source">TripAdvisor · Restaurant</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">A quiet and comfortable bedroom in a charming little town. The hotel is about 10 minutes away from the Ammersee lake with its beautiful shores and views of the mountains. The restaurant is excellent.</p>
+        <div class="review-meta">
+          <div>
+            <div class="reviewer-name">Reisegast</div>
+            <div class="reviewer-source">Booking.com</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Wir waren beim Unterwirt zum Essen – gut dass wir einen Platz reserviert haben! Bayerische Küche und ein paar ausgefallene Gerichte zu guten Preisen. Alles war frisch zubereitet und sehr lecker. Hier kommen wir öfters hin.</p>
+        <div class="review-meta">
+          <div>
+            <div class="reviewer-name">jucki1102</div>
+            <div class="reviewer-source">TripAdvisor</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Comfortable room and excellent restaurant. 15 minute walk to the S-Bahn makes it an ideal centre for touring München or the rest of Bayern. Highly recommended!</p>
+        <div class="review-meta">
+          <div>
+            <div class="reviewer-name">Gast aus dem Ausland</div>
+            <div class="reviewer-source">Booking.com · Bayern-Reise</div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAGE & KONTAKT -->
+<section class="map-section" id="lage">
+  <div style="margin-bottom:48px">
+    <span class="section-label">Anreise & Kontakt</span>
+    <h2 class="section-title">Finden Sie uns <em>leicht</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="map-layout">
+    <div>
+      <div class="contact-box">
+        <div class="contact-header">
+          <h3>Gasthof Hartl</h3>
+          <p>Zum Unterwirt · Türkenfeld</p>
+        </div>
+        <div class="contact-body">
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-info-label">Adresse</div>
+              <div class="contact-info-val">Duringstraße 5<br>82299 Türkenfeld, Bayern</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-info-label">Telefon</div>
+              <div class="contact-info-val"><a href="tel:+498193999517">08193 / 99 95 17</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📠</div>
+            <div>
+              <div class="contact-info-label">Fax</div>
+              <div class="contact-info-val">08193 / 99 95 18</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-info-label">E-Mail</div>
+              <div class="contact-info-val"><a href="mailto:kontakt@gasthof-hartl.de">kontakt@gasthof-hartl.de</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <div class="contact-info-label">Website</div>
+              <div class="contact-info-val"><a href="https://www.gasthof-hartl.de" target="_blank">www.gasthof-hartl.de</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🏠</div>
+            <div>
+              <div class="contact-info-label">Inhaber</div>
+              <div class="contact-info-val">Josef Hartl & Sohn GbR</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🚗</div>
+            <div>
+              <div class="contact-info-label">Anreise A96</div>
+              <div class="contact-info-val">Ausfahrt Greifenberg · ca. 5 Min.</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🚉</div>
+            <div>
+              <div class="contact-info-label">S-Bahn München</div>
+              <div class="contact-info-val">8 Gehminuten zum Bahnhof Türkenfeld</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2652.1!2d11.0648!3d48.1049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDA2JzE3LjYiTiAxMcKwMDMnNTMuMyJF!5e0!3m2!1sde!2sde!4v1234567890!5m2!1sde!2sde&q=Duringstra%C3%9Fe+5%2C+82299+T%C3%BCrkenfeld&zoom=16"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Gasthof Hartl Zum Unterwirt – Duringstraße 5, 82299 Türkenfeld"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p>Gasthof Hartl · Zum Unterwirt</p>
+        <small>Seit über 130 Jahren ein Ort der bayerischen Gastlichkeit in Türkenfeld, nahe des wunderschönen Fünf-Seen-Landes. Wir freuen uns auf Ihren Besuch.</small>
+      </div>
+      <div class="footer-col">
+        <h4>Schnellnavigation</h4>
+        <ul>
+          <li><a href="#about">Über uns</a></li>
+          <li><a href="#kueche">Unsere Küche</a></li>
+          <li><a href="#raeume">Veranstaltungsräume</a></li>
+          <li><a href="#uebernachten">Übernachten</a></li>
+          <li><a href="#bewertungen">Bewertungen</a></li>
+          <li><a href="#lage">Lage & Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Duringstraße 5, 82299 Türkenfeld</li>
+          <li><a href="tel:+498193999517">08193 / 99 95 17</a></li>
+          <li><a href="mailto:kontakt@gasthof-hartl.de">kontakt@gasthof-hartl.de</a></li>
+          <li><a href="https://www.gasthof-hartl.de" target="_blank">www.gasthof-hartl.de</a></li>
+          <li style="margin-top:8px;color:rgba(245,240,232,0.3);font-size:0.78rem">Mo & Di: Ruhetag</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Gasthof Hartl „Zum Unterwirt" · Josef Hartl & Sohn GbR</span>
+      <span>Türkenfeld · nahe des 5-Seen-Landes</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL TISCH -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 id="modalTitle">Tisch reservieren</h3>
+        <p id="modalSub">Gasthof Hartl · Zum Unterwirt</p>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="formContent">
+        <!-- Tisch Form -->
+        <div id="tischForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vorname</label>
+              <input type="text" placeholder="Max">
+            </div>
+            <div class="form-group">
+              <label>Nachname</label>
+              <input type="text" placeholder="Mustermann">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Datum</label>
+              <input type="date">
+            </div>
+            <div class="form-group">
+              <label>Uhrzeit</label>
+              <select>
+                <option>11:30 Uhr</option>
+                <option>12:00 Uhr</option>
+                <option>12:30 Uhr</option>
+                <option>13:00 Uhr</option>
+                <option>13:30 Uhr</option>
+                <option>17:00 Uhr</option>
+                <option>17:30 Uhr</option>
+                <option>18:00 Uhr</option>
+                <option>18:30 Uhr</option>
+                <option>19:00 Uhr</option>
+                <option>19:30 Uhr</option>
+                <option>20:00 Uhr</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Personen</label>
+              <select>
+                <option>1 Person</option>
+                <option>2 Personen</option>
+                <option>3 Personen</option>
+                <option>4 Personen</option>
+                <option>5 Personen</option>
+                <option>6 Personen</option>
+                <option>7–10 Personen</option>
+                <option>Mehr als 10</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Telefon</label>
+              <input type="tel" placeholder="+49 ...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Anmerkungen (optional)</label>
+            <textarea rows="2" placeholder="z.B. Allergien, Sonderwünsche..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="submitForm()">🍽️ Reservierung anfragen</button>
+          <p style="text-align:center;font-size:0.75rem;color:var(--text-light);margin-top:12px">Oder direkt anrufen: <a href="tel:+498193999517" style="color:var(--gold);font-weight:700">08193 / 999 517</a></p>
+        </div>
+
+        <!-- Zimmer Form -->
+        <div id="zimmerForm" style="display:none">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vorname</label>
+              <input type="text" placeholder="Max">
+            </div>
+            <div class="form-group">
+              <label>Nachname</label>
+              <input type="text" placeholder="Mustermann">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Anreise</label>
+              <input type="date">
+            </div>
+            <div class="form-group">
+              <label>Abreise</label>
+              <input type="date">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Zimmertyp</label>
+              <select>
+                <option>Einzelzimmer</option>
+                <option>Doppelzimmer</option>
+                <option>Familienzimmer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Personen</label>
+              <select>
+                <option>1 Person</option>
+                <option>2 Personen</option>
+                <option>3 Personen</option>
+                <option>4 Personen</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefon</label>
+              <input type="tel" placeholder="+49 ...">
+            </div>
+            <div class="form-group">
+              <label>E-Mail</label>
+              <input type="email" placeholder="max@email.de">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Besondere Wünsche</label>
+            <textarea rows="2" placeholder="z.B. Haustier, Kinderbett, Erdgeschoss..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="submitForm()">🛏️ Anfrage absenden</button>
+          <p style="text-align:center;font-size:0.75rem;color:var(--text-light);margin-top:12px">Beste Preise direkt: <a href="tel:+498193999517" style="color:var(--gold);font-weight:700">08193 / 999 517</a></p>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h4>Anfrage gesendet!</h4>
+        <p>Vielen Dank! Das Team des Gasthof Hartl meldet sich schnellstmöglich bei Ihnen.<br><br>
+        Bei dringenden Anfragen: <a href="tel:+498193999517" style="color:var(--gold);font-weight:700">08193 / 999 517</a></p>
+        <button class="btn-submit" style="margin-top:20px" onclick="closeModalDirect()">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentType = 'tisch';
+
+  function openModal(type) {
+    currentType = type;
+    document.getElementById('tischForm').style.display = type === 'tisch' ? 'block' : 'none';
+    document.getElementById('zimmerForm').style.display = type === 'zimmer' ? 'block' : 'none';
+    document.getElementById('formContent').style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+    document.getElementById('modalTitle').textContent = type === 'tisch' ? 'Tisch reservieren' : 'Zimmer anfragen';
+    document.getElementById('modalSub').textContent = type === 'tisch' ? 'Gasthof Hartl · Restaurant' : 'Gasthof Hartl · Übernachtung';
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+  }
+
+  function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function submitForm() {
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Scroll-based nav highlight
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.borderBottomColor = 'rgba(201,151,42,0.5)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(201,151,42,0.3)';
+    }
+  });
+</script>
+</body>
+</html>
